@@ -3,9 +3,10 @@
 set -e
 
 # Utilities and misc
+sudo add-apt-repository universe
 sudo apt install -y fish python3-pip \
-curl zathura\
-fzf git pkg-config libssl-dev \
+curl zathura \
+fzf git pkg-config libssl-dev libfuse2
 
 # brave
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -20,18 +21,17 @@ sudo apt install brave-browser
 # newest nvim
 # get the image
 sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-sudo chmod u+x nvim.appimage
-sudo ./nvim.appimage
 
 # put it into opt
 sudo mkdir -p /opt/nvim
 sudo mv nvim.appimage /opt/nvim/nvim
+sudo chmod +x /opt/nvim/nvim
 
 # add to bashpath
 export PATH="$PATH:/opt/nvim/"
 
 # get tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
 
 # use fish as default editor
 sudo chsh -s $(which fish)
@@ -39,21 +39,28 @@ sudo chsh -s $(which fish)
 # Use Kanata instead of kmonad, so that this will be easier
 
 # Rust
+echo "Rust"
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo rustup update
+export PATH=$PATH:~/.cargo/env
+source ~/.cargo/env
+rustup update
 sudo apt install cargo
 rustup component add clippy
 rustup component add rustfmt
 cargo install cargo-audit
 cargo install cargo-watch
 
+echo "lua"
+sudo apt install luarocks
+sudo luarocks install lua-toml
+
 
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
-ln -s ~/dotfiles/nvim ~/.config/nvim
-mkdir -p ~/.config/fish
-ln -s ~/dotfiles/fish ~/.config/fish/
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/config.toml ~/.cargo/config.toml
+ln -s ~/dotfiles/nvim ~/.config/nvim || true
+mkdir -p ~/.config/fish || true
+ln -s ~/dotfiles/fish ~/.config/fish/ || true
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
+ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
 # Copy instead of link to prevent private info from getting into git
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
 
