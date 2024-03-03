@@ -76,8 +76,7 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc || true
 # Copy instead of link to prevent private info from getting into git
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
 
-
-fish
+source ~/.bashrc
 source .config/fish/config.fish
 
 
