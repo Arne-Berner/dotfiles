@@ -73,6 +73,8 @@ sudo rm ~/.cargo/config.toml || true
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
 sudo rm ~/.bashrc || true
 ln -s ~/dotfiles/.bashrc ~/.bashrc || true
+sudo rm ~/.zshrc || true
+ln -s ~/dotfiles/.bashrc ~/.zshrc || true
 # Copy instead of link to prevent private info from getting into git
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
 
