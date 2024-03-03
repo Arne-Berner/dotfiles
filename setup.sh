@@ -61,10 +61,10 @@ mkdir -p ~/.config/fish || true
 ln -s ~/dotfiles/fish ~/.config/fish/ || true
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
+sudo rm ~/.bashrc
+ln -s ~/dotfiles/.bashrc ~/.bashrc || true
 # Copy instead of link to prevent private info from getting into git
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
-echo "export VISUAL=vim" >> ~/.bashrc
-echo "export EDITOR=$VISUAL" >> ~/.bashrc
 
 
 fish

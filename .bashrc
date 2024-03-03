@@ -130,3 +130,5 @@ alias john="$/tryhackme/john/run/john"
 alias hashid="python3 $/tryhackme/hash-id.py"
 export rockyou="$/tryhackme/SecLists/rockyou.txt"
 export nvim="$/.config/nvim/"
+export VISUAL=vim
+export EDITOR=$VISUAL
