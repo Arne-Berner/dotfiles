@@ -4,7 +4,7 @@ set -e
 
 # Utilities and misc
 sudo apt install -y fish python3-pip \
-curl zathura clangd\
+curl zathura\
 fzf git pkg-config libssl-dev \
 
 # brave
