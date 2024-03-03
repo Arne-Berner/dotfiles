@@ -65,11 +65,11 @@ echo "linking"
 sudo rm ~/.config/nvim/nvim
 ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config/fish || true
-sudo rm ~/.config/fish/fish.config
-ln -s ~/dotfiles/fish.config ~/.config/fish/ || true
-sudo rm ~/tmux.config
+sudo rm ~/.config/fish/config.fish
+ln -s ~/dotfiles/config.fish ~/.config/fish/ || true
+sudo rm ~/.tmux.conf
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
-sudo rm ~/.cargo/confi.toml
+sudo rm ~/.cargo/config.toml
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
 sudo rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc || true
