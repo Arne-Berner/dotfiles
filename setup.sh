@@ -62,16 +62,16 @@ sudo luarocks install lua-toml
 
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
 echo "linking"
-sudo rm ~/.config/nvim/nvim
+sudo rm ~/.config/nvim/nvim || true
 ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config/fish || true
 sudo rm ~/.config/fish/config.fish
 ln -s ~/dotfiles/config.fish ~/.config/fish/ || true
-sudo rm ~/.tmux.conf
+sudo rm ~/.tmux.conf || true
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
-sudo rm ~/.cargo/config.toml
+sudo rm ~/.cargo/config.toml || true
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
-sudo rm ~/.bashrc
+sudo rm ~/.bashrc || true
 ln -s ~/dotfiles/.bashrc ~/.bashrc || true
 # Copy instead of link to prevent private info from getting into git
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
