@@ -12,4 +12,5 @@ if status is-interactive
   fzf_key_bindings
   alias vi "nvim"
   alias tree 'tree -I "target/"'
+  fish_vi_key_bindings
 end
