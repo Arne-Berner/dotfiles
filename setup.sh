@@ -6,7 +6,7 @@ set -e
 echo "Utilities"
 sudo add-apt-repository universe
 sudo apt install -y fish python3-pip \
-curl zathura tmux clang\
+curl zathura tmux clang llvm\
 fzf git pkg-config libssl-dev libfuse2
 
 # brave
