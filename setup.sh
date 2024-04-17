@@ -6,7 +6,7 @@ set -e
 echo "Utilities"
 sudo add-apt-repository universe
 sudo apt install -y fish python3-pip \
-curl zathura \
+curl zathura tmux clang\
 fzf git pkg-config libssl-dev libfuse2
 
 # brave
@@ -59,13 +59,12 @@ echo "lua"
 sudo apt install luarocks
 sudo luarocks install lua-toml
 
-
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
 echo "linking"
 sudo rm ~/.config/nvim/nvim || true
 ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config/fish || true
-sudo rm ~/.config/fish/config.fish
+sudo rm ~/.config/fish/config.fish || true
 ln -s ~/dotfiles/config.fish ~/.config/fish/ || true
 sudo rm ~/.tmux.conf || true
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
@@ -79,6 +78,5 @@ ln -s ~/dotfiles/.bashrc ~/.zshrc || true
 # cp ~/dotfiles/rclone.conf ~/.config/rclone/rclone.conf
 
 source ~/.bashrc
-source .config/fish/config.fish
-
+source ~/.config/fish/config.fish
 
