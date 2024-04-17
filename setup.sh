@@ -59,6 +59,9 @@ echo "lua"
 sudo apt install luarocks
 sudo luarocks install lua-toml
 
+echo "git"
+git config --global core.editor "nvim"
+
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
 echo "linking"
 sudo rm ~/.config/nvim/nvim || true
