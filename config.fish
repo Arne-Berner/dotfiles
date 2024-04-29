@@ -13,4 +13,5 @@ if status is-interactive
   alias vi "nvim"
   alias tree 'tree -I "target/"'
   fish_vi_key_bindings
+  nohup kanata --cfg ~/dotfiles/kanata.kbd &
 end

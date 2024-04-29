@@ -4,3 +4,4 @@ Do not run this in sudo .. for whatever reason you'd want to do that.
 
 ## TODO
 - change to kanata
+- alias rm to mv to tmp
