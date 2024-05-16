@@ -44,8 +44,10 @@ return	{
 					vim.keymap.set('n', '<space>d', vim.lsp.buf.definition, opts)
 					vim.keymap.set('n', '<space><space>', vim.lsp.buf.hover, opts)
 					vim.keymap.set('n', '<space>i', vim.lsp.buf.implementation, opts)
-					-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-					vim.keymap.set('n', '<space>n', vim.lsp.buf.add_workspace_folder, opts)
+          -- will show diagnostics
+					vim.keymap.set('n', '<space>n', vim.diagnostic.goto_next, opts)
+					vim.keymap.set('n', '<space>p', vim.diagnostic.goto_prev, opts)
+					--vim.keymap.set('n', '<space>n', vim.lsp.buf.add_workspace_folder, opts)
 					-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 					-- vim.keymap.set('n', '<leader>wl', function()
 						-- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
