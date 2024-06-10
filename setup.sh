@@ -6,6 +6,7 @@ set -e
 echo "Utilities"
 sudo add-apt-repository universe
 sudo apt install -y fish python3-pip \
+lldb-15 \ #for rust debugging
 curl zathura tmux clang xclip \
 fzf git pkg-config libssl-dev libfuse2
 sudo apt-get install lld
@@ -65,6 +66,8 @@ git config --global core.editor "nvim"
 
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
 echo "linking"
+mkdir -p ~/.config/zathura || true
+ln -s ~/dotfiles/zathurarc ~/.config/zathura/zathurarc || true
 sudo rm ~/.config/nvim/nvim || true
 ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config/fish || true
