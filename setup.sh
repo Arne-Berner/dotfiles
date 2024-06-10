@@ -72,6 +72,7 @@ ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config/fish || true
 sudo rm ~/.config/fish/config.fish || true
 ln -s ~/dotfiles/config.fish ~/.config/fish/ || true
+ln -s ~/dotfiles/fish-config/public/ ~/.config/fish/conf.d/ || true
 sudo rm ~/.tmux.conf || true
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
 sudo rm ~/.cargo/config.toml || true
