@@ -11,5 +11,7 @@ if status is-interactive
   fish_add_path ~/Shellscript/
   fzf_key_bindings
   fish_vi_key_bindings
+  alias vi "nvim"
+  alias tree 'tree -I "target/"'
   nohup kanata --cfg ~/dotfiles/kanata.kbd &
 end
