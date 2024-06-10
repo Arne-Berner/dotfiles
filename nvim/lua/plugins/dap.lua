@@ -1,3 +1,4 @@
+-- https://davelage.com/posts/nvim-dap-getting-started/
 -- This needs lua installed and lua-toml installed via luarocks
 local get_name = function()
 -- Load the lua-toml library
@@ -37,36 +38,30 @@ return {
     -- Debugging
     'mfussenegger/nvim-dap',
     config = function()
-      local dap = require('dap')
 
-      -- Path to codelldb executable
-      local lldb_path = '/usr/bin/lldb-vscode-15'
-
+      local dap = require("dap")
       -- setup adapter
-      local dap = require('dap')
-
-      dap.adapters.lldb = {
-        type = 'executable',
-        command = lldb_path,
-        name = 'lldb'
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap" }
       }
 
       -- config 
       -- this can also be configured via the launch file in .vscode
-      local dap = require('dap')
+      -- Path to codelldb executable
 
       local current_directory = vim.fn.getcwd()
       local name = get_name()
       if name ~= nil then
         dap.configurations.rust = {
           {
-            name = 'Launch',
-            type = 'lldb',
-            request = 'launch',
+            name = "Launch",
+            type = "gdb",
+            request = "launch",
             program = current_directory .. "/target/debug/" .. name,
-            cwd = '${workspaceFolder}',
-            stopOnEntry = false,
-            args = {},
+            cwd = "${workspaceFolder}",
+            stopAtBeginningOfMainSubprogram = false,
           },
         }
       end
@@ -74,10 +69,10 @@ return {
 
       -- Keybindings or commands to start debugging sessions
       vim.api.nvim_set_keymap('n', '<F5>', '<cmd>lua require"dap".continue()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<F9>', '<cmd>lua require"dap".toggle_breakpoint()<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<F10>', '<cmd>lua require"dap".step_over()<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<F11>', '<cmd>lua require"dap".step_into()<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<S-F11>', '<cmd>lua require"dap".step_out()<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<F9>', '<cmd>lua require"dap".toggle_breakpoint()<CR>', { noremap = true, silent = true })
       
       -- These are to override the default highlight groups for catppuccin (see https://github.com/catppuccin/nvim/#special-integrations)
       local sign = vim.fn.sign_define
