@@ -86,4 +86,5 @@ ln -s ~/dotfiles/.bashrc ~/.zshrc || true
 
 source ~/.bashrc
 source ~/.config/fish/config.fish
-
+chsh -s /usr/bin/fish
+fish
