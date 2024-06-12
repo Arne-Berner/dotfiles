@@ -83,9 +83,9 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
   com (tap-hold-release 150 150 . (layer-toggle vim)) 
   cnl (tap-hold-release 150 150 0 lctl) 
   cex (tap-hold-release 150 150 S-1 lctl) 
-  sfw C-tab ;; seite nach vorne
+  sfw A-rght ;; seite nach vorne
   tmx C-b ;; tmux command nach vorne
-  sbw C-S-tab ;; seite nach hinten
+  sbw A-lft ;; seite nach hinten
   cpy C-ins ;; copy
   pst S-ins ;; paste
   cut C-del ;; cut
