@@ -18,6 +18,12 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] http
 
 sudo apt update
 
+# python3
+echo "python3"
+sudo apt install python3 
+
+# brave
+echo "brave"
 sudo apt install brave-browser
 
 
