@@ -19,4 +19,9 @@ if status is-interactive
   # for esp dev with rust
   fish_add_path /home/arne/.rustup/toolchains/esp/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin
   export LIBCLANG_PATH="/home/arne/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+  # for android dev
+  fish_add_path ~/AndroidSdk/build-tools/31.0.0/
+  fish_add_path ~/AndroidSdk/cmdline-tools/latest/bin/
+  set -gx ANDROID_HOME ~/AndroidSdk/
+  set -gx ANDROID_NDK_ROOT ~/AndroidSdk/ndk/27.0.12077973/
 end
