@@ -12,6 +12,7 @@ return {
           options = {
             '-pdf',
             '-output-directory=output',
+            --'-shell-escape',
           },
         }
     vim.g.vimtex_complete_enabled = 1
