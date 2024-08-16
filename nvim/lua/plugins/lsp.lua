@@ -7,7 +7,8 @@ return	{
 			local lspconfig = require('lspconfig')
 
       -- WGSL 
-      lspconfig.wgsl_analyzer.setup {}
+      -- lspconfig.wgsl_analyzer.setup {}
+      lspconfig.glasgow.setup {}
       
 			-- Rust
 			lspconfig.rust_analyzer.setup {
