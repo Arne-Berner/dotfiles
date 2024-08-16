@@ -6,6 +6,9 @@ return	{
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
 
+      -- WGSL 
+      lspconfig.wgsl_analyzer.setup {}
+      
 			-- Rust
 			lspconfig.rust_analyzer.setup {
 				-- Server-specific settings. See `:help lspconfig-setup`
