@@ -5,6 +5,7 @@ Do not run this in sudo .. for whatever reason you'd want to do that.
 ## TODO
 - alias rm to mv to tmp
 - turn the android studio instructions into a bash file
+- add typst to setup
 
 ### format code
 https://stackoverflow.com/questions/77147995/setting-up-formatters-in-neovim-with-mason-lsp-zero

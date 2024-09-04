@@ -10,6 +10,7 @@ if status is-interactive
   fish_add_path /opt/nvim/
   fish_add_path ~/.local/bin/
   fish_add_path ~/Shellscript/
+  fish_add_path ~/Typst/
   fzf_key_bindings
   fish_vi_key_bindings
   alias vi "nvim"
