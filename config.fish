@@ -1,3 +1,7 @@
+function acp
+    git add . && git commit -m "$argv" && git push
+end
+
 if status is-interactive 
 and not set -q TMUX
   nohup kanata --cfg ~/dotfiles/kanata.kbd &
@@ -28,3 +32,4 @@ if status is-interactive
   set -gx ANDROID_HOME ~/AndroidSdk
   set -gx ANDROID_NDK_ROOT ~/AndroidSdk/ndk/27.0.12077973
 end
+
