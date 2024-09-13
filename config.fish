@@ -2,6 +2,18 @@ function acp
     git add . && git commit -m "$argv" && git push
 end
 
+function ac
+    git add . && git commit -m "$argv"
+end
+
+function explain
+    gh copilot explain $argv
+end
+
+function suggest
+    gh copilot suggest $argv
+end
+
 if status is-interactive 
 and not set -q TMUX
   nohup kanata --cfg ~/dotfiles/kanata.kbd &
