@@ -2,6 +2,7 @@
 " Description:  A Plugin to Paste your images into md and typst files with the correct formatting
 " Last Change:  13.9.2024
 " Maintainer:   Arne Berner
+" A long way to create a custom Plugin
 
 " Prevents the plugin from being loaded multiple times. If the loaded
 " variable exists, do nothing more. Otherwise, assign the loaded

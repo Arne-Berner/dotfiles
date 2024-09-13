@@ -1,4 +1,5 @@
 -- screenshot.lua
+-- A fast way to implement a little Plugin
 -- creates the ressources directory if it doesn't exist
 function create_resources_directory()
     local dir_path = vim.fn.expand('%:p:h') .. '/resources'
@@ -36,14 +37,14 @@ function take_screenshot(filename)
     bring_window_back(active_window)
 end
 
+local M = {}
 -- Function to insert a link to the screenshot in the current buffer
 function insert_screenshot_link(filename)
+  take_screenshot(filename)
     local screenshot_path = string.format("./resources/%s.png", filename)
     local line_number = vim.fn.line('.')
     vim.api.nvim_buf_set_lines(0, line_number, line_number, false, {string.format("![%s](%s)", filename, screenshot_path)})
 end
+vim.cmd("command! -nargs=1 Screenshot lua insert_screenshot_link('<args>')")
 
-return {
-  -- Define a command to take a screenshot and insert a link to it
-  vim.cmd("command! -nargs=1 Screenshot lua take_screenshot('<args>'); insert_screenshot_link('<args>')")
-}
+return M
