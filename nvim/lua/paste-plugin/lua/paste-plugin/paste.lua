@@ -1,7 +1,6 @@
 -- paste-image.lua
 -- creates the ressources directory if it doesn't exist
 function create_resources_directory()
-    print("directory")
     local dir_path = vim.fn.expand('%:p:h') .. '/resources'
     
     -- Check if the directory exists
