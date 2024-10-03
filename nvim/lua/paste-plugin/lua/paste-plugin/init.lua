@@ -1,4 +1,5 @@
 -- Imports the plugin's additional Lua modules.
+print("Loading paste-plugin/init.lua")
 local md = require("paste-plugin.md-paste")
 local typst = require("paste-plugin.typst-paste")
 

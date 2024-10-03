@@ -1,3 +1,3 @@
 return {
-  dir = "../paste-plugin"
+  dir = "~/dotfiles/nvim/lua/paste-plugin"
 }
