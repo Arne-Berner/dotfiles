@@ -70,7 +70,7 @@ echo "git"
 git config --global core.editor "nvim"
 git config --global diff.tool nvimdiff
 git config --global difftool.prompt false
-git config --global merge.tool vimdiff
+git config --global merge.tool nvimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
 
