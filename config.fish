@@ -1,9 +1,21 @@
+function start_kanata_process
+    if pgrep -f kanata > /dev/null
+
+    else
+        nohup kanata --cfg ~/dotfiles/kanata.kbd &
+    end
+end
+
+function gdiff
+    git difftool $argv
+end
+
 function acp
-    git add . && git commit -m "$argv" && git push
+    git add . && git commit -m $argv && git push
 end
 
 function ac
-    git add . && git commit -m "$argv"
+    git add . && git commit -m $argv
 end
 
 function explain
@@ -16,13 +28,13 @@ end
 
 if status is-interactive 
 and not set -q TMUX
-  nohup kanata --cfg ~/dotfiles/kanata.kbd &
   tmux -2 new-session -A -s main
   # Adapted from https://unix.stackexchange.com/a/176885/347104
   # Create session 'main' or attach to 'main' if already exists.
 end
 
 if status is-interactive
+  start_kanata_process
   fish_add_path /opt/nvim/
   fish_add_path ~/.local/bin/
   fish_add_path ~/Shellscript/

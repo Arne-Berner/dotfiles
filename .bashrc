@@ -132,4 +132,4 @@ export rockyou="$/tryhackme/SecLists/rockyou.txt"
 export nvim="$/.config/nvim/"
 export VISUAL=vim
 export EDITOR=$VISUAL
-fish
+tmux
