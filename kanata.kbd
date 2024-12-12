@@ -17,16 +17,16 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
   grv  1    2    3    4    5    6    7    8    9    0    /     eql    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [     ]   
   @ecl a    s    d    f    g    h    j    k    l    ;    '     \     ret
-  lsft @apo z    x    c    v    b    n    m    ,    .    -          rsft
+  lsft @apo z    x    c    v    b    n    m    ,    .    /          @frg
   lmet lalt @num          @vim            
 )
 
 (deflayer numbers
 esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   grv  1    2    3    4    5    6    7    8    9    0    /    eql    bspc
-  @tld @str 7    8    9    ]    @bkt @dbl @apo @and @or  @dol XX   
+  @tld @str 7    8    9    @prc    @bkt @dbl @apo @and @or  @dol XX   
   @cex @sls 4    5    6    @equ @at  @lft @rgh @lcr @rcr @bks XX   ret
-  0    @crc 1    2    3    /    \    @lbr @rbr 102d @gt  @und      rsft
+  0    @crc 1    2    3    ]    \    @lbr @rbr 102d @gt  @par      rsft
   lmet lalt @nrm           @com      
 )
 
@@ -51,6 +51,7 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
   ;; vim  (layer-toggle vim) 
   vim (tap-hold-release 150 150 spc (layer-toggle vim)) 
   ecl (tap-hold-release 100 100 esc lctl) 
+  frg (tap-hold-release 100 100 - rsft) 
   ;; tap space hold vim
   apo S-\ ;; apostroph 
   bkt (macro S-eql spc)
