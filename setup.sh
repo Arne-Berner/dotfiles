@@ -74,6 +74,7 @@ git config --global difftool.prompt false
 git config --global merge.tool nvimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
+git config --global push.autoSetupRemote true
 
 # Take the stuff from this dotfiles folder (that I care about) and symlink it
 echo "linking"
