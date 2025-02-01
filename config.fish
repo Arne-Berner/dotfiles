@@ -1,11 +1,3 @@
-function start_kanata_process
-    if pgrep -f kanata > /dev/null
-
-    else
-        nohup kanata --cfg ~/dotfiles/kanata.kbd &
-    end
-end
-
 function gdiff
     git difftool $argv
 end
@@ -34,7 +26,7 @@ and not set -q TMUX
 end
 
 if status is-interactive
-  start_kanata_process
+    # start_kanata_process
   fish_add_path /opt/nvim/
   fish_add_path ~/.local/bin/
   fish_add_path ~/Shellscript/

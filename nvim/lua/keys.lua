@@ -80,3 +80,7 @@ set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 --
 -- Merken: ctrl d und ctrl u sind runter und hoch ne halbe seite
 -- ansonsten {} benutzen
+--
+-- Bacon
+set("n", "!", ":BaconLoad<CR>:w<CR>:BaconNext<CR>", { desc = "Navigate to next bacon location" })
+set("n", ",", ":BaconList<CR>", { desc = "Open bacon locations list" })
