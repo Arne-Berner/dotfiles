@@ -77,6 +77,7 @@ return	{
                 augroup CloseQuickfixOnLeave
                 autocmd!
                 autocmd WinLeave * if &filetype == 'qf' | q |
+                autocmd FileType qf nnoremap <buffer> <esc> :q<cr>
                 augroup END
             ]])
           end
