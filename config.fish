@@ -38,8 +38,7 @@ if status is-interactive
   export SHELL="/bin/fish"
 
   # for esp dev with rust
-  fish_add_path /home/arne/.rustup/toolchains/esp/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin
-  export LIBCLANG_PATH="/home/arne/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+  fish_add_path $HOME/export-esp.sh
   # for android dev
   fish_add_path ~/AndroidSdk/build-tools/34.0.0
   fish_add_path ~/AndroidSdk/platform-tools
