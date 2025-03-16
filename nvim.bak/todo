@@ -1,0 +1,11 @@
+?debugger for rust
+lsp.buf (sowas wie funktionen in vscode -> declaration, definition etc.) konfigurieren (muss neu für rustacean)
+(declaration, definition, hover, implementation, add_workspace_folder, remove_workspace_folder, list_workspacefolder, rename, code_action, references)... next in vorschläge? scroll in hover? last file (also fzy find auf den buffer??: siehe search buffers bei jon)
+markdown syntax
+markdown liveview
+chatgpt
+copilot
+cd to root of git: 'notjedi/nvim-rooter.lua',
+set invlist=true auf einen knopf, um leerzeichen usw. anzuzeigen
+
+use a second tmux window for cargo runs

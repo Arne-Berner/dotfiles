@@ -32,7 +32,6 @@
   "vim-matchup": { "branch": "master", "commit": "5fb083de1e06fdd134c6ad8d007d4b5576b25ba7" },
   "vim-toml": { "branch": "main", "commit": "d36caa6b1cf508a4df1c691f915572fc02143258" },
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
-  "vimtex": { "branch": "master", "commit": "6ee92c7ed2cdc876f499bd5561a65d04dee10d1f" },
   "wgsl.vim": { "branch": "main", "commit": "fdf91e11243266dfe923fc08c2fc9749429bc5aa" },
   "yaml.nvim": { "branch": "main", "commit": "1c1096a0b4b2cc31ca7cf430570911faaeca02c2" }
 }
