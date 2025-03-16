@@ -1,3 +1,0 @@
-return {
-  'DingDean/wgsl.vim',
-}
