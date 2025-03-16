@@ -6,16 +6,10 @@ return	{
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
 
-      --python
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-      lspconfig.pyright.setup{
-        capabilities=capabilities,
-      }
-
       -- WGSL 
       -- lspconfig.wgsl_analyzer.setup {}
-      lspconfig.glasgow.setup {}
+      lspconfig.wgsl_analyzer.setup({
+      })
       
 			-- Rust
 			lspconfig.rust_analyzer.setup {
@@ -63,26 +57,14 @@ return	{
 					-- vim.keymap.set('n', '<leader>wl', function()
 						-- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 					-- end, opts)
-					--vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts).bak
+					--vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
 					vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action, opts)
+					vim.keymap.set('n', '<space>r', vim.lsp.buf.references, opts)
 					vim.keymap.set('n', '<F3>', function()
 						vim.lsp.buf.format { async = true }
 					end, opts)
 
-
-          local function refs()
-            vim.lsp.buf.references()
-            vim.cmd([[
-                augroup CloseQuickfixOnLeave
-                autocmd!
-                autocmd WinLeave * if &filetype == 'qf' | q |
-                autocmd FileType qf nnoremap <buffer> <esc> :q<cr>
-                augroup END
-            ]])
-          end
-
-					vim.keymap.set('n', '<space>r', refs, opts)
 					local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
 					-- When https://neovim.io/doc/user/lsp.html#lsp-inlay_hint stabilizes
@@ -167,3 +149,4 @@ return	{
 		end
 	},
 }
+
