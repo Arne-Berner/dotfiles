@@ -17,15 +17,13 @@ return	{
       vim.lsp.enable('wgsl_analyzer')
       lspconfig.wgsl_analyzer.filetypes = {"wgsl", "wesl"}
 
-      local on_attach = function(client)
-          require'completion'.on_attach(client)
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-      end
 			-- Rust
       vim.lsp.enable("rust_analyzer")
       -- https://rust-analyzer.github.io/book/configuration.html
 			lspconfig.rust_analyzer = {
-        on_attach = on_attach,
+        on_attach = function(client, bufnr)
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end,
 				settings = {
 					["rust-analyzer"] = {
             procMacro = {
@@ -45,11 +43,9 @@ return	{
               -- extraArgs
               -- extraEnv
 						},
-            --[[
             check = {
               command = "clippy",
             },
-            --]]
 						imports = {
 							group = {
 								enable = false,
