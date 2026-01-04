@@ -68,12 +68,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- [[closing reference and such after open]]
-vim.api.nvim_create_autocmd("BufLeave", {
-  pattern = "quickfix",
+vim.api.nvim_create_autocmd("WinLeave", {
+  pattern = "*",  -- Match all windows
   callback = function()
-    vim.cmd("cclose")
+    if vim.bo.filetype == "qf" then
+      vim.cmd("q")
+    end
   end,
-  desc = "Close quickfix window after leaving it",
+  desc = "Close quickfix window when leaving it",
 })
 
 -- [[ Splits ]]
