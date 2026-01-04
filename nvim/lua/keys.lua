@@ -15,7 +15,7 @@ local set = vim.keymap.set
 
 -- [[ Normal Mode ]]
 -- make current file to current directory
-set('n', '<space>cd', "<CMD>lcd %:h<CR>")
+set('n', '<space>cd', "<CMD>tcd %:h<CR>")
 
 -- search and replace
 set('n', '<C-f>', ':%s/')
@@ -51,17 +51,17 @@ set('i', 'jj', '<esc>')
 set('v', '<C-c>', '"+y')
 
 
+-- [[ Terminal Mode ]]
+set('t', '<c-w><c-w>', '<C-\\><C-n><C-w>w')
+set('t', '<c-w><c-q>', '<C-\\><C-n><C-q>q')
+set('t', '<c-w><c-c>', '<C-\\><C-n><C-c>c')
+set('t', '<c-w><c-e>', '<C-\\><C-n>')
+set('n', '<c-w><c-e>', ':terminal<CR>')
+set('t', '<c-w>w', '<C-\\><C-n><C-w>w')
+set('t', '<c-w>q', '<C-\\><C-n><C-q>q')
+set('t', '<c-w>c', '<C-\\><C-n><C-c>c')
+set('t', '<c-w>e', '<C-\\><C-n>')
+set('n', '<c-w>e', ':terminal<CR>')
+set('t', '<c-w><tab>', '<C-\\><C-n>g<tab>')
+
 -- [[ Plugins ]]
-
-
--- keys that are available
--- ctrl e (context actions)
--- ctrl m
--- 
---
--- Merken: ctrl d und ctrl u sind runter und hoch ne halbe seite
--- ansonsten {} benutzen
---
--- Bacon
-set("n", "!", ":BaconLoad<CR>:w<CR>:BaconNext<CR>", { desc = "Navigate to next bacon location" })
-set("n", ",", ":BaconList<CR>", { desc = "Open bacon locations list" })
