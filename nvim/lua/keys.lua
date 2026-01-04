@@ -52,23 +52,6 @@ set('v', '<C-c>', '"+y')
 
 
 -- [[ Plugins ]]
---
--- telescope
-local builtin = require('telescope.builtin')
--- uses git_files, if available
-local function toggle_git_or_find()
-    local success, result = pcall(builtin.git_files)
-    if not success then
-        result = builtin.find_files()
-    end
-    return result
-end
-
--- Now you can set the keybinding to call this function
-set('n', '<C-T>', toggle_git_or_find, {})
-set('n', '<C-Z>', builtin.buffers, {})
-set('n', '<C-Q>', builtin.help_tags, {})
-
 -- Oil
 set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
