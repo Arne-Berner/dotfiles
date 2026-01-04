@@ -7,6 +7,6 @@ local show_help = function()
     {}
   )
 end
-M.show_help = vim.api.nvim_create_user_command("ShowTipps",show_help,{ nargs = "?", complete = "help" })
+M.show_help = vim.api.nvim_create_user_command("ShowTipps",show_help,{})
 
 return M
