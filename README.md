@@ -10,6 +10,9 @@ Do not run this in sudo .. for whatever reason you'd want to do that.
 ### format code
 https://stackoverflow.com/questions/77147995/setting-up-formatters-in-neovim-with-mason-lsp-zero
 
+## Kanata
+In order to use kanata, you need to clone arne-berner/my-kanata into dotfiles root (here).
+
 ## Android Studio
 ### Installing cmdline-tools
 - create AndroidSdk directory

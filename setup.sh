@@ -61,7 +61,6 @@ rustup component add clippy
 rustup component add rustfmt
 cargo install cargo-audit
 cargo install cargo-watch
-cargo install kanata
 
 echo "lua"
 sudo apt install luarocks
