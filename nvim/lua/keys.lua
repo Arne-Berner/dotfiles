@@ -52,8 +52,6 @@ set('v', '<C-c>', '"+y')
 
 
 -- [[ Plugins ]]
--- Oil
-set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 
 -- keys that are available
