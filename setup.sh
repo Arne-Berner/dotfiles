@@ -6,7 +6,7 @@ set -e
 echo "Utilities"
 sudo add-apt-repository universe
 sudo apt install -y fish python3-pip \
-curl zathura tmux clang xclip \
+curl zathura clang xclip \
 fzf git pkg-config libssl-dev libfuse2
 sudo apt-get install lld
 
@@ -18,37 +18,28 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] http
 
 sudo apt update
 
+sudo apt install brave-browser
+
 # python3
 echo "python3"
 sudo apt install python3 
 
-# brave
-echo "brave"
-sudo apt install brave-browser
-
-
 # newest nvim
 # get the image
 echo "nvim"
-sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
 
 # put it into opt
 sudo mkdir -p /opt/nvim
-sudo mv nvim.appimage /opt/nvim/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 sudo chmod +x /opt/nvim/nvim
 
 # add to bashpath
 export PATH="$PATH:/opt/nvim/"
 
-# get tmux plugin manager
-echo "tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
-
 # use fish as default editor
 echo "fish as default"
 sudo chsh -s $(which fish)
-
-# Use Kanata instead of kmonad, so that this will be easier
 
 # Rust
 echo "Rust"
@@ -60,7 +51,6 @@ sudo apt install cargo
 rustup component add clippy
 rustup component add rustfmt
 cargo install cargo-audit
-cargo install cargo-watch
 
 echo "lua"
 sudo apt install luarocks
@@ -84,8 +74,6 @@ ln -s ~/dotfiles/nvim ~/.config/nvim || true
 mkdir -p ~/.config || true
 sudo rm -rf ~/.config/fish || true
 ln -s ~/dotfiles/fish ~/.config/fish || true
-sudo rm ~/.tmux.conf || true
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
 sudo rm ~/.cargo/config.toml || true
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
 sudo rm ~/.zshrc || true
