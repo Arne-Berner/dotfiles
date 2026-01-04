@@ -4,12 +4,12 @@ grn rename
 gra code_action
 grr references
 gri implementation
-grt type_definition (nutzlos für rust)
+grt type_definition (klappt nicht für macros)
 gO  document_symbol (quasi eine übersicht der file)
 c-s in insert, hilft es dir die signature zu füllen
 
 selbst geadded:
-grd definition() (nützlich für rust, klappt auch mit macros) 
+grd definition() (nützlich für rust, klappt auch mit macros)  -- das selbe wie grD
 grD declaration()
 
 <C-w>d diagnostic at cursor (error)
@@ -85,6 +85,7 @@ c-w,s split
 O-w,v split vertically
 c-w,w next window (FAST!!)
 c-w,= alle windows gleich, bis auf current
+c-w,_ resize window to number
 
 ## help
 :help ...
@@ -178,3 +179,8 @@ greedy match, tries to match as much as possible
 \r used in replacestring to insert a newline character
 
 (or works too)
+
+
+## Rust
+g:rust_cargo_check_all_targets~  (check runs tests und bench)
+*/nvim/lazy/rust.vim/README.md
