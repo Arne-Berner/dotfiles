@@ -82,16 +82,13 @@ mkdir -p ~/.config/zathura || true
 ln -s ~/dotfiles/zathurarc ~/.config/zathura/zathurarc || true
 sudo rm ~/.config/nvim/nvim || true
 ln -s ~/dotfiles/nvim ~/.config/nvim || true
-mkdir -p ~/.config/fish || true
-sudo rm ~/.config/fish/config.fish || true
-ln -s ~/dotfiles/config.fish ~/.config/fish/ || true
-ln -s ~/dotfiles/fish-config/public/ ~/.config/fish/conf.d/ || true
+mkdir -p ~/.config || true
+sudo rm -rf ~/.config/fish || true
+ln -s ~/dotfiles/fish ~/.config/fish || true
 sudo rm ~/.tmux.conf || true
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf || true
 sudo rm ~/.cargo/config.toml || true
 ln -s ~/dotfiles/config.toml ~/.cargo/config.toml || true
-sudo rm ~/.bashrc || true
-ln -s ~/dotfiles/.bashrc ~/.bashrc || true
 sudo rm ~/.zshrc || true
 ln -s ~/dotfiles/.bashrc ~/.zshrc || true
 # Copy instead of link to prevent private info from getting into git
