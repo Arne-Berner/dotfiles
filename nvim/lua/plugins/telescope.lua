@@ -11,9 +11,6 @@ return {
     }
   },
   mappings = {
-    n = {
-      ["t"] = require('telescope.actions').select_tab,
-    },
   },
   config = function()
     local telescope = require('telescope')
@@ -40,6 +37,7 @@ return {
     set('n', '<C-T>z', builtin.buffers, {})    -- Opens list of buffers
     set('n', '<C-T>h', builtin.help_tags, {})  -- Search help tags
     set('n', '<C-T>r', builtin.find_files, {}) -- Search for files
+    set('n', '<C-T>gr', builtin.live_grep, {}) -- Search for files
     set('n', '<C-T>gc', builtin.git_commits, {}) -- Search for files
     set('n', '<C-T>gs', builtin.git_status, {}) -- Search for files
     set('n', '<C-T>gb', builtin.git_branches, {}) -- Search for files
