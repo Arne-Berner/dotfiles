@@ -12,7 +12,7 @@ return	{
       -- WGSL 
       vim.lsp.enable('wgsl_analyzer')
       lspconfig.wgsl_analyzer.filetypes = {"wgsl", "wesl"}
-      
+
 			-- Rust
       vim.lsp.enable("rust_analyzer")
 			lspconfig.rust_analyzer = {
@@ -59,6 +59,7 @@ return	{
 					local opts = { buffer = ev.buf }
 					vim.keymap.set('n', 'grd', vim.lsp.buf.definition, opts)
 					vim.keymap.set('n', 'grD', vim.lsp.buf.declaration, opts)
+					vim.keymap.set('n', 'grO', vim.diagnostic.setqflist, opts)
 					vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action, opts)
 					vim.keymap.set('n', '<F3>', function()
@@ -74,6 +75,7 @@ return	{
 		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
 		opts = {},
+---@diagnostic disable-next-line: unused-local
 		config = function(_, opts)
 			-- Get signatures (and _only_ signatures) when in argument lists.
 			require "lsp_signature".setup({
