@@ -1,5 +1,23 @@
-**lazy-lock.json
+# doc/frotz and /doc are both relative to the .gitignore pattern. 
+# will not match a/doc/frotz
+# an * matches anything except a slash
+# ** followed by / means match in all directories
+# **foo equals foo
+# **/foo/bar matches any bar directly under foo
+# abc/** matches everything inside directory abc (but not the directory) with infinite depth
+# a/**/b matches 0 or more directories between: a/b a/x/b a/x/y/b
+# ? matches any one character except /
+# [a-z] range notation works
+# foo/* will match foo/bar and foo/bar/ but not foo/bar/baz (any file beneath it)
+# if foo was excluded !foo will include it again (except if parent is excluded)
+# foo matches any file or directory called foo
+lazy-lock.json
 nohup.out
-my-kanata
 .luarc.json
-**fish_variables*
+fish_variables
+
+# ignores all directories called my-kanata (and everything underneath)
+my-kanata/
+
+
+
