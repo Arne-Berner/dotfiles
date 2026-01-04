@@ -56,21 +56,24 @@ opt.expandtab = true             -- bool: Use spaces instead of tabs
 opt.shiftwidth = 4               -- num:  Size of an indent
 opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 4                  -- num:  Number of spaces tabs count for
-vim.cmd([[
-  augroup LuaSettings
-    autocmd!
-    autocmd FileType lua setlocal shiftwidth=2 softtabstop=2 tabstop=2 
-  augroup END
-]])
--- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set shiftwidth = 2' })
--- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set softtabstop = 2' })
--- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set tabstop = 2' })
--- [[ wgsl ]]
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.wgsl",
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "lua", "html" },
   callback = function()
-    vim.bo.filetype = "wgsl"
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.expandtab = true
   end,
+  desc = "Set tabstop options for specific languages",
+})
+
+-- [[closing reference and such after open]]
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "quickfix",
+  callback = function()
+    vim.cmd("cclose")
+  end,
+  desc = "Close quickfix window after leaving it",
 })
 
 -- [[ Splits ]]

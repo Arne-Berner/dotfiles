@@ -61,6 +61,7 @@ set('t', '<c-w>w', '<C-\\><C-n><C-w>w')
 set('t', '<c-w>q', '<C-\\><C-n><C-q>q')
 set('t', '<c-w>c', '<C-\\><C-n><C-c>c')
 set('t', '<c-w>e', '<C-\\><C-n>')
+set('t', '<c-w>gt', '<C-\\><C-n>gt')
 set('n', '<c-w>e', ':terminal<CR>')
 set('t', '<c-w><tab>', '<C-\\><C-n>g<tab>')
 
