@@ -65,8 +65,19 @@ vim.cmd([[
 -- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set shiftwidth = 2' })
 -- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set softtabstop = 2' })
 -- vim.api.nvim_create_autocmd('Filetype', { pattern = 'lua', command = 'set tabstop = 2' })
+-- [[ wgsl ]]
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.wgsl",
+  callback = function()
+    vim.bo.filetype = "wgsl"
+  end,
+})
 
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true            -- bool: Place new window below the current one
 opt.autoindent = true
+
+
+-- terminal
+vim.opt.shell = '/bin/fish'
