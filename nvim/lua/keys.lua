@@ -63,6 +63,6 @@ set('t', '<c-w>c', '<C-\\><C-n><C-c>c')
 set('t', '<c-w>e', '<C-\\><C-n>')
 set('t', '<c-w>gt', '<C-\\><C-n>gt')
 set('n', '<c-w>e', ':terminal<CR>')
-set('t', '<c-w><tab>', '<C-\\><C-n>g<tab>')
+set('t', '<c-w><tab>', '<C-\\><C-n><C-^>')
 
 -- [[ Plugins ]]
