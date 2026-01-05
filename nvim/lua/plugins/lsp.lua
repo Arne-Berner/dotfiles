@@ -43,9 +43,12 @@ return	{
               -- extraArgs
               -- extraEnv
 						},
+            -- too slow
+            --[[
             check = {
               command = "clippy",
             },
+            --]]
 						imports = {
 							group = {
 								enable = false,

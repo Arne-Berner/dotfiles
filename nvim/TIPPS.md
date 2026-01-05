@@ -29,6 +29,10 @@ gt          go to next tab page
 gT          go to prev tab page
 g<tab>      last accessed tab
 <space>cd   current directory für den tab
+:%!xxd      binary file wird zu hex (vim = hexeditor)
+            nimmt die ganze file :% als argument ! für xxd, geht auch mit 
+            -b für binary dump, -r geht wieder zurück
+
 
 ## OIL
 also das tabsuch programm
@@ -182,5 +186,8 @@ greedy match, tries to match as much as possible
 
 
 ## Rust
+ft_rust ist anscheinend direkt in neovim integriert? RustExpand funktioniert dann wahrsch. nicht.
 g:rust_cargo_check_all_targets~  (check runs tests und bench)
 */nvim/lazy/rust.vim/README.md
+:Clip
+und :Clip! und ein force refresh zu machen, weil es gecached ist.
