@@ -1,3 +1,5 @@
+# you don't need to add or commit the gitignore file to see its result!
+
 # doc/frotz and /doc are both relative to the .gitignore pattern. 
 # will not match a/doc/frotz
 # an * matches anything except a slash
