@@ -80,6 +80,24 @@ If you are done with your issue, please create a pull request. Here are the gold
 1. If you create a pull request, check for other pull requests and review any open pull requests.
 2. Reviewing a pull requests means at least trying the feature on your machine once. Ask yourself: Does this PR solve the issue?
 
+### commit are a story & squashing
+Taken verbatim from [the linux code](https://thelinuxcode.com/git-squash-explained-a-guide-for-keeping-commit-history-clean/).
+- Condense Locally First – Always squash commits on a private branch before sharing publicly via push. Reduces coordination headaches.
+- Squash Little and Often – Don‘t let granular commits pile up! Squash trivial changes early within a feature branch.
+- Clean Near End of Work – Right before submitting a pull request, inspect history and squash. The final series of commits should tell a coherent feature story.
+- Balance Automation – Automate reminders to squash stale branches, but don‘t blindly squash everything. Some history provides value long-term.
+
+(Pro Tip: Amend older commit messages to summarize vs keeping individual granular details.)
+```
+# rebase with all the options
+git rebase -i <commit>^ # --root for smaller projects
+
+# do your merging
+
+git push --force 
+```
+git reflog can help you get you stuff back.
+
 ## Android Studio
 ### Installing cmdline-tools
 - create AndroidSdk directory
