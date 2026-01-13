@@ -12,7 +12,6 @@ return {
       local lsp = vim.lsp
       local api = vim.api
 
-
       --grammar
       -- typst, md, latex, txt
       local dict_path = vim.fn.stdpath("cache") .. "/ltex_plus/dict_de"
@@ -196,7 +195,7 @@ return {
         settings = {
           formatterMode = "typstyle",
           exportPdf = "onSave",
-          semanticTokens = "disable",
+          -- semanticTokens = "disable",
         },
       }
 
