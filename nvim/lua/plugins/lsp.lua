@@ -9,12 +9,100 @@ return	{
       -- :help lsp-buf
 			-- Setup language servers.
 			local lspconfig = vim.lsp.config
+			local lsp = vim.lsp
+      local api = vim.api
+
+      --tinymist
+      lsp.enable("tinymist")
+      lspconfig.tinymist = {
+        on_attach = function(client, bufnr)
+          api.nvim_create_user_command("TinymistPin",  function()
+            client:exec_cmd({
+              title = "pin",
+              command = "tinymist.pinMain",
+              arguments = { api.nvim_buf_get_name(0) },
+            }, { bufnr = bufnr })
+          end, {})
+        
+          api.nvim_create_user_command("TinymistUnpin", function()
+            client:exec_cmd({
+              title = "unpin",
+              command = "tinymist.pinMain",
+              arguments = { vim.v.null },
+            }, { bufnr = bufnr })
+          end, {})
+
+          -- TODO needs a page number to work correctly
+          api.nvim_create_user_command("TinymistSVG",  function()
+            client:exec_cmd({
+              title = "exportSvg",
+              command = "tinymist.exportSvg",
+              arguments = { api.nvim_buf_get_name(0) },
+            }, { bufnr = bufnr })
+          end, {})
+
+          api.nvim_create_user_command("TinymistHTML",  function()
+            client:exec_cmd({
+              title = "exportHtml",
+              command = "tinymist.exportHtml",
+              arguments = { api.nvim_buf_get_name(0) },
+            }, { bufnr = bufnr })
+          end, {})
+
+          -- TODO needs a page number to work correctly
+          api.nvim_create_user_command("TinymistPNG",  function()
+            client:exec_cmd({
+              title = "exportPng",
+              command = "tinymist.exportPng",
+              arguments = { api.nvim_buf_get_name(0) },
+            }, { bufnr = bufnr })
+          end, {})
+
+          api.nvim_create_user_command("TinymistThumbnail", function()
+            vim.fn.jobstart({
+              "typst",
+              "compile",
+              "-f", "png",
+              "--pages", "1",
+              "--ppi", "250",
+              "main.typ",
+              "thumbnail.png"
+            }, {
+              stdout_buffered = true,
+              stderr_buffered = true,
+              on_stdout = function(_, data)
+                if data then
+                  print(table.concat(data, "\n"))
+                end
+              end,
+              on_stderr = function(_, data)
+                if data then
+                  print("Error: " .. table.concat(data, "\n"))
+                end
+              end,
+              on_exit = function(_, exit_code)
+                if exit_code == 0 then
+                  print("✔ Successfully generated thumbnail: thumbnail.png")
+                else
+                  print("✘ Failed to generate thumbnail!")
+                end
+              end,
+            })
+          end, {})
+        end,
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "onSave",
+          semanticTokens = "disable",
+        },
+      }
+
 
       --python
-      vim.lsp.enable("pyright")
+      lsp.enable("pyright")
 
       -- WGSL 
-      vim.lsp.enable('wgsl_analyzer')
+      lsp.enable('wgsl_analyzer')
       lspconfig.wgsl_analyzer.filetypes = {"wgsl", "wesl"}
 
 			-- Rust
@@ -22,7 +110,7 @@ return	{
       -- https://rust-analyzer.github.io/book/configuration.html
 			lspconfig.rust_analyzer = {
         on_attach = function(client, bufnr)
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end,
 				settings = {
 					["rust-analyzer"] = {
