@@ -200,3 +200,9 @@ g:rust_cargo_check_all_targets~  (check runs tests und bench)
 */nvim/lazy/rust.vim/README.md
 :Clip
 und :Clip! und ein force refresh zu machen, weil es gecached ist.
+
+## git
+git add -p filename -> lässt dich nur bestimmte lines aus einer file comitten
+git add -e filename -> diff of changes in default vim 
+git add -i -> interactive staging 
+git add -N -> unstaged wird staged, gut für diff
