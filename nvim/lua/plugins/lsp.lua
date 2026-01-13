@@ -12,6 +12,7 @@ return	{
 			local lsp = vim.lsp
       local api = vim.api
 
+
       --tinymist
       lsp.enable("tinymist")
       lspconfig.tinymist = {
@@ -93,7 +94,7 @@ return	{
         settings = {
           formatterMode = "typstyle",
           exportPdf = "onSave",
-          semanticTokens = "disable",
+          -- semanticTokens = "disable",
         },
       }
 
