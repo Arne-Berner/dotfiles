@@ -33,6 +33,20 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
+-- [[ Sessions ]]
+-- local sessions
+local data_dir = vim.fn.stdpath("data") .. "/sessions"
+if vim.fn.isdirectory(data_dir) == 0 then
+  vim.fn.mkdir(data_dir, "p")
+end
+
+--  Auto-save session when exiting Vim
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    local session_file = data_dir .. "/auto-session.vim"
+    vim.cmd("mksession! " .. session_file)
+  end
+})
 -- [[ Filetypes ]]
 opt.encoding = 'utf8'            -- str:  String encoding to use
 opt.fileencoding = 'utf8'        -- str:  File encoding to use
@@ -57,7 +71,7 @@ opt.shiftwidth = 4               -- num:  Size of an indent
 opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 4                  -- num:  Number of spaces tabs count for
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "lua", "html" },
+  pattern = { "javascript", "typescript", "lua", "html", "xml" },
   callback = function()
     vim.bo.tabstop = 2
     vim.bo.softtabstop = 2
