@@ -71,7 +71,7 @@ opt.shiftwidth = 4               -- num:  Size of an indent
 opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 4                  -- num:  Number of spaces tabs count for
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "lua", "html", "xml" },
+  pattern = { "javascript", "typescript", "lua", "html", "fish", "xml" },
   callback = function()
     vim.bo.tabstop = 2
     vim.bo.softtabstop = 2
