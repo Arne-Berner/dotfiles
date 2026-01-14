@@ -17,6 +17,7 @@ lazy-lock.json
 nohup.out
 .luarc.json
 fish_variables
+.bashrc
 
 # ignores all directories called my-kanata (and everything underneath)
 my-kanata/
