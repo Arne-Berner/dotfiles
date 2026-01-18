@@ -1,5 +1,6 @@
 # Merken: 
 ## lsp
+K   hover
 grn rename
 gra code_action
 grr references
@@ -32,7 +33,12 @@ g<tab>      last accessed tab
 :%!xxd      binary file wird zu hex (vim = hexeditor)
             nimmt die ganze file :% als argument ! für xxd, geht auch mit 
             -b für binary dump, -r geht wieder zurück
+g&          repeat last :s (substitute) line on all lines
+&           repeat last :s on current line!
+ZZ          schließt die Datei und speichert sie
 
+## Sessions
+Vim hat ein eigenes eingebautes Session management anscheinend. Das ist cool? 
 
 ## OIL
 also das tabsuch programm
@@ -77,6 +83,7 @@ a" kann alles (inklusive der ") in der " auswählen
 (klappt auch mit klammern, wörtern, blöcken usw.
 aB (die ganze function in {})
 ap paragraph, sentence
+gv exchange current and previous highlighted area
 
 ## windows
 (klappen alle auch mit c-X,c-X)
@@ -101,6 +108,8 @@ ctrl-w g } springt auf den tag in einem neuen window
 ctrl-w } auch? also kürzer
 CTRL-] ist wohl in help links
 ]b ist einen buffer zurück springen
+gD gehe zur definition in der file
+g] gehe auf den Tag (mit einer komischen liste)
 
 ## Terminal (oof)
 :sus -> einmal kurz da hin gesprungen, wo man her kam.  (fg wieder zurück)
