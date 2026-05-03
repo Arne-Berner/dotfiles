@@ -17,15 +17,55 @@ return	{
       lsp.enable("tinymist")
       lspconfig.tinymist = {
         on_attach = function(client, bufnr)
-          api.nvim_create_user_command("TinymistPin",  function()
+          -- Define a helper to pin "main.typ"
+          local pin_main_typ_file = function()
+            -- Search for "main.typ" in the workspace
+            local main_file = vim.fn.findfile("main.typ", ".;") -- Search "main.typ" in the current working directory
+            if main_file ~= "" then
+              -- Automatically pin "main.typ" if found
+              client:exec_cmd({
+                title = "pin",
+                command = "tinymist.pinMain",
+                arguments = { vim.fn.fnamemodify(main_file, ":p") }, -- Get absolute path of "main.typ"
+              }, { bufnr = bufnr })
+            else
+              -- Notify the user if "main.typ" is not found
+              api.nvim_err_writeln("Could not find 'main.typ' in the workspace directory.")
+            end
+          end
+
+          -- Automatically pin "main.typ" on attach
+          api.nvim_create_user_command("PinMain", function()
+            pin_main_typ_file()
+          end, {})
+
+          -- Optional: Add a manual command for pinning if needed
+          api.nvim_create_user_command("TinyPin", function()
             client:exec_cmd({
               title = "pin",
               command = "tinymist.pinMain",
               arguments = { api.nvim_buf_get_name(0) },
             }, { bufnr = bufnr })
           end, {})
+
         
-          api.nvim_create_user_command("TinymistUnpin", function()
+          api.nvim_create_user_command("TinyUnpin", function()
+            client:exec_cmd({
+              title = "unpin",
+              command = "tinymist.pinMain",
+              arguments = { vim.v.null },
+            }, { bufnr = bufnr })
+          end, {})
+
+          api.nvim_create_user_command("TinyInfo", function()
+            client:exec_cmd({
+              title = "unpin",
+              command = "tinymist.getServerInfo",
+              arguments = { vim.v.null },
+            }, { bufnr = bufnr })
+          end, {})
+
+          api.nvim_create_user_command("TinyHTML", function()
             client:exec_cmd({
               title = "unpin",
               command = "tinymist.pinMain",
@@ -34,7 +74,7 @@ return	{
           end, {})
 
           -- TODO needs a page number to work correctly
-          api.nvim_create_user_command("TinymistSVG",  function()
+          api.nvim_create_user_command("TinySVG",  function()
             client:exec_cmd({
               title = "exportSvg",
               command = "tinymist.exportSvg",
@@ -42,7 +82,7 @@ return	{
             }, { bufnr = bufnr })
           end, {})
 
-          api.nvim_create_user_command("TinymistHTML",  function()
+          api.nvim_create_user_command("TinyHTML",  function()
             client:exec_cmd({
               title = "exportHtml",
               command = "tinymist.exportHtml",
@@ -51,7 +91,7 @@ return	{
           end, {})
 
           -- TODO needs a page number to work correctly
-          api.nvim_create_user_command("TinymistPNG",  function()
+          api.nvim_create_user_command("TinyPNG",  function()
             client:exec_cmd({
               title = "exportPng",
               command = "tinymist.exportPng",
@@ -59,7 +99,7 @@ return	{
             }, { bufnr = bufnr })
           end, {})
 
-          api.nvim_create_user_command("TinymistThumbnail", function()
+          api.nvim_create_user_command("TinyThumbnail", function()
             vim.fn.jobstart({
               "typst",
               "compile",
